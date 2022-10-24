@@ -3,3 +3,4 @@
 1. Band Name Generator
 2. Tip Calculator
 3. Treasure Island
+4. Rock Paper Scissors
