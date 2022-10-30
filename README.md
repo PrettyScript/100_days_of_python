@@ -7,3 +7,4 @@
 5. Password Generator
 6. Karel (Online)
 7. Hangman
+8. Caesar Cipher
