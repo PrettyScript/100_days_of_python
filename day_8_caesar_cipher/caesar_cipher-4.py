@@ -1,3 +1,5 @@
+from art import logo
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def caesar(start_text, shift_amount, cipher_direction):
@@ -16,6 +18,7 @@ def caesar(start_text, shift_amount, cipher_direction):
   print(f"Here's the {cipher_direction}d result: {end_text}")
 
 #TODO-1: Import and print the logo from art.py when the program starts.
+print(logo)
 
 #TODO-4: Can you figure out a way to ask the user if they want to restart the cipher program?
 #e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
@@ -30,5 +33,7 @@ shift = int(input("Type the shift number:\n"))
 #Try running the program and entering a shift number of 45.
 #Add some code so that the program continues to work even if the user enters a shift number greater than 26. 
 #Hint: Think about how you can use the modulus (%).
+if shift > 26:
+  shift = shift % 26
 
 caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
