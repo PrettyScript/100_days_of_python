@@ -8,3 +8,4 @@
 6. Karel (Online)
 7. Hangman
 8. Caesar Cipher
+9. Secret Auction
