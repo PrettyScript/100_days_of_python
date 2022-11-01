@@ -9,3 +9,4 @@
 7. Hangman
 8. Caesar Cipher
 9. Secret Auction
+10. Calculator
