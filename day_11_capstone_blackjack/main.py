@@ -60,41 +60,88 @@
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 from art import logo
 import random
+import os
+clear = lambda: os.system('clear')
 
-# start_game = input("Do you want to play a game of BlackJack? Type 'y' or 'n': ")
+start_game = input("Do you want to play a game of BlackJack? Type 'y' or 'n': ")
 
-# if start_game == 'y':
-#     print(logo)
-#     deal_card()
-# else:
-#     end_game()
 
 def deal_card():
-    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    user_cards = []
-    computer_cards = []
-    random_card = random.randint(0, len(cards) - 1)
-    count = 0
-    # print(user_cards.append(2, dealt_cards))
-    # for card in range(0, 2):
-    #     print(cards[random_card])
-    # print(cards[random_card])
-    user_cards = cards[random_card] * 2
-    # user_cards.append(cards[random_card])
-    # computer_cards.append(cards[random_card])
-    # computer_cards.append(cards[random_card])
-    # print(user_cards)
-    # print(computer_cards)
-    # for card in cards:
-    #     if count < 2:
-    #        user_cards.append(cards[random_card])
-    #        count += 1
-    print(user_cards)
-    # for card in cards:
-    #     # print(cards[0])
-    #     if count < 2:
-    #         print(cards[random_card])
-    #         count += 1
-    #     else
+    game_play = True
 
-deal_card()
+    while game_play:
+        cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+        user_cards = []
+        computer_cards = []
+
+        user_card_1 = random.choice(cards)
+        user_card_2 = random.choice(cards)
+        user_cards.append(user_card_1)
+        user_cards.append(user_card_2)
+
+        computer_card_1 = random.choice(cards)
+        computer_card_2 = random.choice(cards)
+        computer_cards.append(computer_card_1)
+        computer_cards.append(computer_card_2)
+
+
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
+        print(f"Your cards: {user_cards}, current score: {user_score}")
+        print(f"Computer's first card: {computer_cards[0]}")
+        # print(user_score)
+        # print(computer_score)
+        # compare(user_score, computer_score)
+        continue_game = input("Type 'y' to get another card, type 'n' to pass: ")
+
+        if continue_game == 'y':
+            additional_user_card = random.choice(cards)
+            additional_computer_card = random.choice(cards)
+            print(f"Your cards: {user_cards}, current score: {user_score}")
+            print(f"Computer's first card: {computer_cards[0]}")
+            another_card = input("Type 'y' to get another card, type 'n' to pass: ")
+        elif continue_game == 'n':
+            # provide final score
+            print(f"Your cards: {user_cards}, final score: {user_score}")
+            print(f"Computer's final hand: {computer_cards}, final score: {computer_score}")
+            game_play = False
+
+
+def calculate_score(cards):
+    # return sum(cards)
+    if 11 in cards and 10 in cards:
+        return 0
+    elif 11 in cards and sum(cards) > 21:
+        cards.remove(11)
+        cards.append(1)
+        return sum(cards)
+    elif sum(cards) == 0 or sum(cards) > 21:
+        print("You Lose")
+        # end_game()
+    else:
+        return sum(cards)
+    
+    # return sum(cards)
+
+
+def compare(user_score, computer_score):
+    # min_score = 1
+    if user_score == computer_score:
+        print("It's a Draw")
+    elif computer_score == 0:
+        print("You Lose")
+    elif user_score == 0:
+        print("You Win!")
+    elif user_score > 21:
+        print("You Lose")
+    elif computer_score > 21:
+        print("You Win!")
+    #else:
+        # player with the highest score wins.
+# deal_card()
+
+if start_game == 'y':
+    print(logo)
+    deal_card()
+else:
+    clear()
