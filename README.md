@@ -12,3 +12,4 @@
 10. Calculator
 11. Blackjack (Capstone)!
 12. Guess the Number
+13. Debugging
