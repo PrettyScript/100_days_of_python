@@ -15,26 +15,34 @@ import random
 print('''Welcome to the Number Guessing Game!
 I'm thinking of a number between 1 and 100.''')
 correct_number = random.randint(1,100)
-print(f"Pssst, the correct answer is {correct_number}")
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ") 
-
+# print(f"Pssst, the correct answer is {correct_number}")
 easy_attempts = 10
 hard_attempts = 5
-print(f"You have {easy_attempts} attempts remaining to guess the number.")
 
-# def attempts():
-while easy_attempts > 0:
-    user_guess = int(input("Make a guess: "))
-    if  user_guess != correct_number:
-        easy_attempts -= 1
-        if user_guess > correct_number:
-           print("Too high.\nGuess again.")  
-           print(f"You have {easy_attempts} attempts remaining to guess the number.") 
+difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ") 
+
+
+def attempts(user_attempts):
+    while user_attempts > 0:
+        user_guess = int(input("Make a guess: "))
+        if  user_guess != correct_number:
+            user_attempts -= 1
+            if user_attempts == 0:
+                print("You've run out of guesses, you lose.")
+            elif user_guess > correct_number:
+                print("Too high.\nGuess again.")  
+                print(f"You have {user_attempts} attempts remaining to guess the number.") 
+            else:
+                print("Too low.\nGuess again.")  
+                print(f"You have {user_attempts} attempts remaining to guess the number.")
         else:
-           print("Too low.\nGuess again.")  
-           print(f"You have {easy_attempts} attempts remaining to guess the number.")
-    else:
-        print(f"You got it! The answer was {correct_number}.")
-        break
+            print(f"You got it! The answer was {correct_number}.")
+            break
 
+if difficulty == 'easy':
+    print(f"You have {easy_attempts} attempts remaining to guess the number.")
+    attempts(easy_attempts)
+elif difficulty == 'hard':
+    print(f"You have {hard_attempts} attempts remaining to guess the number.")
+    attempts(hard_attempts)
         
