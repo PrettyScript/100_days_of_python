@@ -11,3 +11,4 @@
 9. Secret Auction
 10. Calculator
 11. Blackjack (Capstone)!
+12. Guess the Number
