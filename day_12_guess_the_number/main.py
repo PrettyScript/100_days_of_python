@@ -1,5 +1,5 @@
 from art import logo
-# print(logo)
+print(logo)
 import random
 
 #Number Guessing Game Objectives:
@@ -18,11 +18,10 @@ correct_number = random.randint(1,100)
 # print(f"Pssst, the correct answer is {correct_number}")
 easy_attempts = 10
 hard_attempts = 5
-
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ") 
 
 
-def attempts(user_attempts):
+def guess_number(user_attempts):
     while user_attempts > 0:
         user_guess = int(input("Make a guess: "))
         if  user_guess != correct_number:
@@ -41,8 +40,10 @@ def attempts(user_attempts):
 
 if difficulty == 'easy':
     print(f"You have {easy_attempts} attempts remaining to guess the number.")
-    attempts(easy_attempts)
+    guess_number(easy_attempts)
 elif difficulty == 'hard':
     print(f"You have {hard_attempts} attempts remaining to guess the number.")
-    attempts(hard_attempts)
-        
+    guess_number(hard_attempts)
+
+print(easy_attempts)
+print(hard_attempts)
