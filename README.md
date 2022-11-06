@@ -13,3 +13,4 @@
 11. Blackjack (Capstone)!
 12. Guess the Number
 13. Debugging
+14. Higher Lower Game
