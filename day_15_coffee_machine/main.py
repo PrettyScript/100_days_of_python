@@ -19,6 +19,21 @@ def prices():
 # prices()
 
 #TODO Check resources sufficient 
+def check_resources(coffee):
+    water_ingredient = MENU[coffee]['ingredients']['water']
+    milk_ingredient = MENU[coffee]['ingredients']['milk']
+    coffee_ingredient = MENU[coffee]['ingredients']['coffee']
+
+    water_resource = resources['water']
+    milk_resource = resources['milk']
+    coffee_resource = resources['coffee']
+
+    if coffee == 'espresso':
+        return water_resource > water_ingredient and coffee_resource > coffee_ingredient
+    elif coffee == 'latte' or coffee == 'cappuccino':
+        return water_resource > water_ingredient and milk_resource > milk_ingredient and coffee_resource > coffee_ingredient
+
+# check_resources('latte')
 
 #TODO Get Coffee Price
 def get_coffee_price(coffee):
@@ -40,13 +55,24 @@ def process_coins():
     nickle = .05
     penny = .01
     coin_total = (quarter * quarters) + (dime * dimes) + (nickle * nickles) + (penny * pennies)
-    print(coin_total)
-    print(3.5 - coin_total)
+    return coin_total
 
 # process_coins()
 
 #TODO Check transaction successful?
-# def check_transaction():
+def check_transaction(coffee):
+    coins = process_coins()
+    if coins >= get_coffee_price(coffee):
+        # make_coffee()
+        if coins > get_coffee_price(coffee):
+           refund = get_coffee_price(coffee) - coins
+           refund = round(abs(refund), 2)
+           print(f"Here is ${refund} dollars in change.")
+        print("Make coffee")
+    else:
+        print("Sorry that's not enough money. Money refunded.")
+
+# check_transaction('espresso')
 
 #TODO Make Coffee
 coffee = '☕'
@@ -67,6 +93,6 @@ def coffee_machine_on():
         process_coins()
     elif order == 'cappuccino':
         process_coins()
-    elif order == 'off':
-        turn_off_machine()
+    # elif order == 'off':
+    #     turn_off_machine()
     
