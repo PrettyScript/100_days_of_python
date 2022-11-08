@@ -3,10 +3,16 @@ from menu import resources, MENU
 #TODO Print report
 def report():
     money = 0
-    print(f"Water: {resources['water']}ml")
-    print(f"Milk: {resources['milk']}ml")
-    print(f"Coffee: {resources['coffee']}g")
+    water = resources['water']
+    milk = resources['milk']
+    coffee = resources['coffee']
+    resources = [water, milk, coffee, money]
+    print(f"Water: {water}ml")
+    print(f"Milk: {milk}ml")
+    print(f"Coffee: {coffee}g")
     print(f"Money: ${money}")
+
+    return resources
 
 # report()
 
@@ -76,7 +82,11 @@ def check_transaction(coffee):
 
 #TODO Make Coffee
 coffee = '☕'
+def make_coffee(coffee):
+    resources = report()
+    print(resources)
 
+make_coffee('espresso')
 #TODO Turn off coffee machine
 # def turn_off_machine(request):
 #     '''Takes user input to end code execution'''
