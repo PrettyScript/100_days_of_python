@@ -4,25 +4,20 @@ from money_machine import MoneyMachine
 
 is_on = True
 
-# def report():
-
-
-
 while is_on:
     menu = Menu()
-    coffemaker = CoffeeMaker()
-    moneymachine = MoneyMachine()
-    moneymachine.profit = 0
+    coffee_maker = CoffeeMaker()
+    money_machine = MoneyMachine()
+    money_machine.profit = 0
 
     order = input(f"What would you like? ({menu.get_items()}): ")
 
     if order == 'off':
         is_on = False
     elif order == 'report':
-        print(coffemaker.report())
-        print(moneymachine.profit)
+        coffee_maker.report()
+        money_machine.report()
     else:
         drink = menu.find_drink(order)
-        if coffemaker.is_resource_sufficient(drink):
-            moneymachine.money_received = moneymachine.process_coins()
-            if moneymachine.make_payment()
+        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+            coffee_maker.make_coffee(drink)
