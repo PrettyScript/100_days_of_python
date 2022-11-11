@@ -17,4 +17,4 @@
 15. Coffee Machine
 16. Coffee Machine in OOP
 17. The Quiz Project
-18. Turtle & the GUI
+18. Hirst Painting
