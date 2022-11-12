@@ -23,36 +23,27 @@ color_list = [(202, 164, 110), (236, 239, 243), (149, 75, 50), (222, 201, 136), 
 
 timmy = Turtle()
 turtle.colormode(255)
+timmy.speed('fastest')
+is_painting = True 
+row = 0
+position_x = -300
 
-
-# print(timmy.position())
-timmy.penup()
-# timmy.setposition(-200.0, 0.0)
-# timmy.setx(-200)
-# timmy.sety(0)
-# set_y = 0
-
-for _ in range(10):
-    # set_y += 50
-    # timmy.setx(-200)
-    # timmy.sety(set_y)
-    timmy.pendown()
-    timmy.dot(20, choice(color_list))
+while is_painting:
+    # Position X
     timmy.penup()
-    timmy.forward(50)
-
-# timmy.penup()
-# timmy.setposition(-200.0, 50.0)
-# for _ in range(10):
-#     timmy.pendown()
-#     timmy.dot(20, choice(color_list))
-#     timmy.penup()
-#     timmy.forward(50)
-
-
-
-
-
+    timmy.hideturtle()
+    timmy.setposition(-200.0, position_x)
+    # ROW
+    for _ in range(10):
+        timmy.pendown()
+        timmy.dot(20, choice(color_list))
+        timmy.penup()
+        timmy.forward(50)
+    if row < 10:
+        row +=1
+        position_x += 50
+    else:
+        is_painting = False
 
 
 
