@@ -27,21 +27,27 @@ turtle.colormode(255)
 
 # print(timmy.position())
 timmy.penup()
-timmy.setposition(-200.0, 0.0)
+# timmy.setposition(-200.0, 0.0)
+# timmy.setx(-200)
+# timmy.sety(0)
+# set_y = 0
 
 for _ in range(10):
+    # set_y += 50
+    # timmy.setx(-200)
+    # timmy.sety(set_y)
     timmy.pendown()
     timmy.dot(20, choice(color_list))
     timmy.penup()
     timmy.forward(50)
 
-timmy.penup()
-timmy.setposition(-200.0, 50.0)
-for _ in range(10):
-    timmy.pendown()
-    timmy.dot(20, choice(color_list))
-    timmy.penup()
-    timmy.forward(50)
+# timmy.penup()
+# timmy.setposition(-200.0, 50.0)
+# for _ in range(10):
+#     timmy.pendown()
+#     timmy.dot(20, choice(color_list))
+#     timmy.penup()
+#     timmy.forward(50)
 
 
 
