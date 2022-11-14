@@ -7,8 +7,10 @@
 #TODO Detect collision with tail
 
 import time
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -17,6 +19,8 @@ screen.title("My Snake Game")
 screen.tracer(0)
 
 snake = Snake()
+food = Food()
+score = Scoreboard()
 
 screen.listen()
 screen.onkey(key="Up", fun=snake.up)
@@ -31,6 +35,11 @@ while game_is_on:
     time.sleep(0.1)
     
     snake.move()
+
+    #Detect collison with food.
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        score.score()
 
 
 screen.exitonclick()
