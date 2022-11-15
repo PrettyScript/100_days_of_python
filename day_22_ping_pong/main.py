@@ -2,7 +2,7 @@
 #TODO Create and go the a paddle
 #TODO Create another paddle
 #TODO Create the ball and make it go
-#TODO Detect collision with wall and bounce
+#TODO Detect collision with wall and bounce_y
 #TODO Detect collision with paddle
 #TODO Detect when paddle misses
 #TODO Keep Score
@@ -10,6 +10,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -28,13 +29,32 @@ screen.onkey(r_paddle.go_up, "Up")
 screen.onkey(r_paddle.go_down, "Down")
 screen.onkey(l_paddle.go_up, "w")
 screen.onkey(l_paddle.go_down, "s")
+scoreboard = Scoreboard()
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
 
+    # Detect collion with wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        # needs to bounce_y ball
+        ball.bounce_y()
+
+    # Detect collision with paddle
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320 :
+        ball.bounce_x()
+
+    # Detect R paddle misses
+    if ball.xcor() > 380:
+        ball.reset_position()
+        scoreboard.l_point()
+
+    # Detect L paddle misses
+    if ball.xcor() < - 380:
+        ball.reset_position()
+        scoreboard.r_point()
 
 
 
