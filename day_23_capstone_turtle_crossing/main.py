@@ -9,6 +9,7 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 
 turtle = Player()
+car = CarManager()
 
 
 screen.listen()
