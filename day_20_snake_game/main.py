@@ -8,7 +8,6 @@
 
 import time
 from turtle import Screen
-from typing import final
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard

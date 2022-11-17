@@ -2,8 +2,10 @@
 #     contents = file.read()
 #     print(contents)
 
-with open("my_file.txt", mode="a") as file:
-    file.write("\nNew Text.")
+with open("my_file.txt", mode="r") as file:
+    # file.write("\nNew Text.")
+    print(type(file))
 
 with open("new_file.txt", mode="w") as file:
-    file.write("New Text.")
+    contents = file.write("New Text.")
+    print(type(contents))
