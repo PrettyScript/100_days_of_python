@@ -7,18 +7,21 @@
     #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
         #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
-with open("./Input/Letters/starting_letter.txt", mode="r") as file:
-    intro = file.readline()
-    # intro = intro.replace("[name]", f"{names}")
+'''My Solution'''
 
-with open("./Input/Letters/starting_letter.txt", mode="r") as file:
-    letter = ""
-    for line in file:
-        letter += line
+# with open("./Input/Letters/starting_letter.txt", mode="r") as file:
+#     intro = file.readline()
+#     # intro = intro.replace("[name]", f"{names}")
 
-with open("./Input/Names/invited_names.txt", mode="r") as file:
-    names = file.readlines()
-    for name in names:
-        with open(f"./Output/ReadyToSend/{name}.txt", mode="w") as file:
-            file.write(intro.replace("[name]", f"{name}").strip())
-            file.write(letter[11:].strip())
+# with open("./Input/Letters/starting_letter.txt", mode="r") as file:
+#     letter = ""
+#     for line in file:
+#         letter += line
+
+# with open("./Input/Names/invited_names.txt", mode="r") as file:
+#     names = file.readlines()
+#     for name in names:
+#         with open(f"./Output/ReadyToSend/{name}.txt", mode="w") as file:
+#             file.write(intro.replace("[name]", f"{name}").strip())
+#             file.write(letter[11:].strip())
+
