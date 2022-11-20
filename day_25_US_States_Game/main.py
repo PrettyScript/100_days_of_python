@@ -16,7 +16,7 @@
 
 import pandas
 
-data = pandas.read_csv("weather_data.csv")
+# data = pandas.read_csv("weather_data.csv")
 # print(type(data))
 # print(data["temp"])
 # data_dict = data.to_dict()
@@ -38,20 +38,37 @@ data = pandas.read_csv("weather_data.csv")
 # print(data[data.day == "Monday"])
 # print(data[data.temp == data.temp.max()])
 
-monday = data[data.day == 'Monday']
-# print(monday.condition)
+# monday = data[data.day == 'Monday']
+# # print(monday.condition)
 
-def celsius_to_fahrenheit(celsius):
-    fahrenheit = (celsius * 9/5) + 32
-    return fahrenheit
+# def celsius_to_fahrenheit(celsius):
+#     fahrenheit = (celsius * 9/5) + 32
+#     return fahrenheit
 
-print(celsius_to_fahrenheit(monday.temp))
+# print(celsius_to_fahrenheit(monday.temp))
 
-# Create a dataframe from scratch
-student_scores = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
+# # Create a dataframe from scratch
+# student_scores = {
+#     "students": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65]
+# }
+# data = pandas.DataFrame(student_scores)
+# # print(data)
+# data.to_csv("new_data.csv")
+
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+squirrels = data["Primary Fur Color"].to_list()
+gray_squirrels_count = len(data[data["Primary Fur Color"] == "Gray"])
+red_squirrels_count = len(data[data["Primary Fur Color"] == "Cinnamon"])
+black_squirrels_count = len(data[data["Primary Fur Color"] == "Black"])
+print(gray_squirrels_count)
+print(red_squirrels_count)
+print(black_squirrels_count)
+
+data_dict = {
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count" : [gray_squirrels_count, red_squirrels_count, black_squirrels_count]
 }
-data = pandas.DataFrame(student_scores)
-# print(data)
-data.to_csv("new_data.csv")
+
+df = pandas.DataFrame(data_dict)
+df.to_csv("squirrel_count.csv")
