@@ -1,7 +1,7 @@
 # with open("weather_data.csv") as data:
 #     weather_data = data.readlines()
 #     print(weather_data)
-    
+
 # import csv
 # with open("weather_data.csv") as data_file:
 #     data = csv.reader(data_file)
@@ -67,7 +67,7 @@ print(black_squirrels_count)
 
 data_dict = {
     "Fur Color": ["Gray", "Cinnamon", "Black"],
-    "Count" : [gray_squirrels_count, red_squirrels_count, black_squirrels_count]
+    "Count": [gray_squirrels_count, red_squirrels_count, black_squirrels_count],
 }
 
 df = pandas.DataFrame(data_dict)
