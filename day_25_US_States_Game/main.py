@@ -1,46 +1,44 @@
-import turtle
+from turtle import Turtle, Screen
 import pandas
-import State
 
-screen = turtle.Screen()
+# import State
+
+screen = Screen()
+turtle = Turtle()
 screen.title("U.S. State Game")
 image = "blank_states_img.gif"
 screen.addshape(image)
 turtle.shape(image)
 
 state_data = pandas.read_csv("50_states.csv")
+state_data["x_y_coordinates"] = list(zip(state_data.x, state_data.y))
 states = state_data.state.tolist()
-
-state = State()
+val = state_data[state_data.state == "Florida"].iloc[0]["x_y_coordinates"]
+print(val)
 
 
 # print(states)
 score = 0
 correct_states = []
+state = Turtle()
+state.hideturtle()
 
 quiz_on = True
 # TODO When user gets answer correct the name is placed on respective state
 
+answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?")
+
 while quiz_on:
-    answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?")
-    
+
     if answer_state in states:
-        # print(True)
         score += 1
         correct_states.append(answer_state)
-        # answer_corr_x = state_data[state_data.state == answer_state].x
-        # answer_corr_y = state_data[state_data.state == answer_state].y
-        # print(state_data[state_data.state == answer_state].y)
+        val = state_data[state_data.state == answer_state].iloc[0]["x_y_coordinates"]
+        state.hideturtle()
         state.penup()
-        state.goto(220, -145)
-        state.write(f"{answer_state}")        
-        # print(f"1st: {answer_state}")
-        #The title of the text input is keeping track of the user's progress i.e. 4/50 Correct
-        answer = turtle.textinput(title=f"{score}/50 Correct", prompt="What's another state's name?")
-        if answer in states:
-            correct_states.append(answer)
-            print(f"2nd: {answer}")
-    # TODO If the user gets it incorrect then they are prompted again
+        state.goto(val)
+        state.write(f"{answer_state}")
+        answer_state = screen.textinput(title=f"{score}/50 Correct", prompt="What's another state's name?")
     else:
         quiz_on = False
         print("You Lose.")
@@ -48,5 +46,5 @@ while quiz_on:
 
     print(correct_states)
 
-# turtle.mainloop()
+
 screen.exitonclick()
