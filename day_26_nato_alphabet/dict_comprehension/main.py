@@ -7,8 +7,8 @@ names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
 
 from random import randint
 
-student_scores = {student:randint(1,100) for student in names}
+student_scores = {student: randint(1, 100) for student in names}
 # print(student_scores)
 
-passed_students ={student:student_score for (key, value) in student_scores if student_score > 60}
+passed_students = {student: score for (student, score) in student_scores.items() if score >= 60}
 print(passed_students)
