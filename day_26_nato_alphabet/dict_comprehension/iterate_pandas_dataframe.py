@@ -15,4 +15,6 @@ print(student_data_frame)
 
 # Loop through rows of a data frame
 for (index, row) in student_data_frame.iterrows():
-    print(index)
+    # print(row.student)
+    if row.student == "Angela":
+        print(row.score)
