@@ -1,3 +1,10 @@
 {
-    "cSpell.words": ["dataframe", "exitonclick", "iloc", "iterrows"]
+    "cSpell.words": [
+        "dataframe",
+        "exitonclick",
+        "iloc",
+        "iterrows",
+        "padx",
+        "pady"
+    ]
 }
