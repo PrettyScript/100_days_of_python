@@ -2,9 +2,11 @@
     "cSpell.words": [
         "dataframe",
         "exitonclick",
+        "highlightthickness",
         "iloc",
         "iterrows",
         "padx",
-        "pady"
+        "pady",
+        "Pomodoro"
     ]
 }
