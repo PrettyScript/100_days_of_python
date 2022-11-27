@@ -29,3 +29,4 @@
 27. Mile to Kilometer Converter Project
 28. Pomodoro App
 29. Password Manager
+30. Errors, Exceptions and JSON Data
