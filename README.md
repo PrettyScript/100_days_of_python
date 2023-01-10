@@ -34,3 +34,4 @@
 32. Automated Birthday Wisher
 33. ISS Overhead Notifier
 34. Quizzler
+35. API Authentication | Weather Notification
