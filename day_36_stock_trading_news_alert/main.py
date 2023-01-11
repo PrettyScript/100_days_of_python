@@ -32,16 +32,22 @@ day_before_yesterday_price = stock_prices[1]["4. close"]
 
 
 # test values 👇🏾
-# yesterday_price = 120
-# day_before_yesterday_price = 200
+yesterday_price = 1568.3600
+day_before_yesterday_price = 1643.0000
 
 
 # TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
-yesterday_price = int(float(yesterday_price))
-day_before_yesterday_price = int(float(day_before_yesterday_price))
+# yesterday_price = (float(yesterday_price))
+# day_before_yesterday_price = float(day_before_yesterday_price)
+
+print(yesterday_price)
+print(day_before_yesterday_price)
+
+# difference = abs(float(yesterday_price - day_before_yesterday_price))
+difference = abs(float(yesterday_price) - float(day_before_yesterday_price))
 
 
-print(yesterday_price - day_before_yesterday_price)
+print(difference)
 
 
 def price_increased():
@@ -50,11 +56,7 @@ def price_increased():
 
 # TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
 def percentage():
-    return int(
-        abs(yesterday_price - day_before_yesterday_price)
-        / ((yesterday_price + day_before_yesterday_price) / 2)
-        * 100
-    )
+    return (difference / float(yesterday_price)) * 100
 
 
 print(percentage())
