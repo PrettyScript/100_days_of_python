@@ -4,17 +4,7 @@ from flight_search import FlightSearch
 from pprint import pprint
 
 data = DataManager()
+sheet_data = data.get_destination_data()
+pprint(sheet_data)
 
-sheet_data = data.get_data()
-# pprint(sheet_data)
-# pprint(sheet_data[0]["iataCode"])
-# code = sheet_data[0]["iataCode"]
-# code = "'TESTING'"
-# print(code)
-# pprint(sheet_data)
 
-# test_city = sheet_data[0]
-
-flight_search = FlightSearch(sheet_data)
-flight_search.get_IATA_code()
-# pprint(sheet_data)
