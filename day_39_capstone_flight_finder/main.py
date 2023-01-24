@@ -1,6 +1,7 @@
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 from data_manager import DataManager
 from flight_search import FlightSearch
+from flight_data import FlightData
 from pprint import pprint
 
 data_manager = DataManager()
@@ -17,3 +18,6 @@ if sheet_data[0]["iataCode"] == "":
     
     data_manager.destination_data = sheet_data
     data_manager.update_destination_codes()
+    
+flight_data = FlightData()
+flight_data.get_flight_price("SEA")
